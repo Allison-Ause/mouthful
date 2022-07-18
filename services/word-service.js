@@ -12,10 +12,16 @@ export async function getWords() {
     // on error, return null
 }
 
-export async function getWord(wordId) {
-    // TODO: get the word that matches wordId
-    // join on foreign table relationship to get profiles
-    // on error, return null
+export async function getWord(id) {
+    const response = await client
+        .from('words')
+        .select(`*, 
+            words_to_profile (
+                *, 
+                profiles (*)
+            )`)
+        .eq('id', id);
+    return checkResponse(response);
 }
 
 export async function getProfile(userId) {
