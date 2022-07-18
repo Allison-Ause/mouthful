@@ -1,0 +1,16 @@
+.username {
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+.box {
+    margin: 20px
+}
+
+#profile-box {
+    border: 5px solid grey;
+}
+
+#profile-words {
+    border: 5px solid grey;
+}

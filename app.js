@@ -4,6 +4,7 @@ import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createBulkBin from './components/BulkBin.js';
 
+
 // State
 let user = null;
 let words = [];
@@ -37,7 +38,7 @@ async function handleSignOut() {
     signOut();
 }
 
-// Components
+// Components 
 const User = createUser(
     document.querySelector('#user'),
     { handleSignOut }
