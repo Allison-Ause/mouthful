@@ -1,5 +1,7 @@
 import { client, checkResponse } from './client.js';
 
+const PROFILE_TABLE = 'profiles';
+
 export async function getWords() {
     const response = await client
         .from('words')
