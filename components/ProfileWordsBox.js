@@ -11,7 +11,7 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
             ul.append(li);
 
             const a = document.createElement('a');
-            a.href = `/detail/?word=${word.id}`;
+            a.href = `/detail/?id=${word.id}`;
             a.textContent = word.word;
             a.classList.add('word');
             li.append(a);
