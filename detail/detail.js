@@ -4,11 +4,13 @@ import createUser from '../components/User.js';
 import { getProfile, getWord } from '../services/word-service.js';
 import createSingleServing from '../components/singleServing.js';
 import { removeWord, saveWord } from '../services/wordsToProfiles.js';
+import createUsersWithWord from '../components/userWordList.js';
 
 // State
 let user = null;
 let word = [];
 let profile = null;
+let wordID = null;
 
 // Action Handlers
 async function handlePageLoad() {
@@ -16,10 +18,10 @@ async function handlePageLoad() {
     protectPage(user);
 
     const params = new URLSearchParams(window.location.search);
-    const id = Number(params.get('id'));
+    wordID = Number(params.get('id'));
 
     profile = await getProfile(user.id);
-    word = await getWord(id);
+    word = await getWord(wordID);
 
     display();
 }
@@ -64,9 +66,12 @@ const SingleServing = createSingleServing(document.querySelector('.word-card'),
     handleAddWord,
 );
 
+const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'));
+
 function display() {
     User({ user });
     SingleServing(word, user);
+    UsersWithWord({ users: word[0].words_to_profile }, wordID);
 }
 
 handlePageLoad();

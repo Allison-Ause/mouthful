@@ -1,0 +1,32 @@
+.username-box {
+    display: flex;
+    border: solid 2px black;
+    margin: 10px 20px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+.username-box::-webkit-scrollbar {
+    display: none;
+}
+
+.username-box {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.users-with-word {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.user {
+    border-bottom: solid 2px black;
+    width: fit-content;
+    padding: 3px;
+    margin: 10px;
+}
