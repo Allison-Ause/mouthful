@@ -16,7 +16,6 @@ async function handlePageLoad() {
     protectPage(user);
 
     profile = await getProfile(user.id);
-    console.log('in detail.js profile: ', profile);
 
     word = await getWord(14);
 
@@ -28,13 +27,11 @@ async function handleSignOut() {
 }
 
 async function handleRemoveWord(word_id) {
-    console.log('word id: ', typeof word_id, 'profile id: ', typeof profile.id);
     await removeWord(word_id, profile.id);
     display();
 }
 
 async function handleAddWord(word_id) {
-    console.log('adds word');
     const dataToUpdate = {
         word_id,
         profile_id: Number(profile.id)

@@ -1,7 +1,6 @@
 export default function createSingleServing(wordCard, handleRemoveWord, handleAddWord) {
 
     return (word, user) => {
-        console.log(word);
         const h2 = wordCard.querySelector('h2');
         h2.textContent = word[0].word;
 
