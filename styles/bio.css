@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap');
+
+#bio-p {
+    font-style: normal;
+    font-size: 1.2em;
+}
+
+.team-member {
+    border: 2px solid black;
+    margin: 35px 20px;
+    padding: 50px;    
+    text-align: left;
+}
+
+.team-member h3 {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0px;
+    padding-top: 65px;
+}
+
+hr {
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+.team-word {
+    margin-top: 25px;
+}
+
+.team-fave-word {
+    font-style: italic;
+    font-weight: bold;
+}
+
