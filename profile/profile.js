@@ -14,6 +14,7 @@ import { removeWord } from '../services/wordsToProfiles.js';
 // State
 let user = null;
 let profile = null;
+let ownProfile = false;
 
 // Action Handlers
 async function handlePageLoad() {
@@ -23,6 +24,7 @@ async function handlePageLoad() {
     const searchParams = new URLSearchParams(window.location.search);
     const userId = searchParams.get('id');
 
+    ownProfile = userId === null;
     profile = await getProfileWithSavedWords(userId ?? user.id);
 
     if (!profile) return;
@@ -59,7 +61,7 @@ const ProfileWordsBox = createProfileWordsBox(
 function display() {
     User({ user });
     ProfileBox({ profile });
-    ProfileWordsBox({ words: profile.saved_words });
+    ProfileWordsBox({ words: profile.saved_words, ownProfile });
 }
 
 handlePageLoad();
