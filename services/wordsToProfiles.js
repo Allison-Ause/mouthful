@@ -7,3 +7,12 @@ export async function saveWord(data) {
         .single();
     return checkResponse(response);
 }
+
+export async function removeWord(word_id, profile_id) {
+    const response = await client
+        .from('words_to_profile')
+        .delete()
+        .eq('word_id', word_id, 'profile_id', profile_id)
+        .single();
+    return checkResponse(response);
+}

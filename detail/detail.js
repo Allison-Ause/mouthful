@@ -3,7 +3,7 @@ import { protectPage } from '../utils.js';
 import createUser from '../components/User.js';
 import { getProfile, getWord } from '../services/word-service.js';
 import createSingleServing from '../components/singleServing.js';
-import { saveWord } from '../services/wordsToProfiles.js';
+import { removeWord, saveWord } from '../services/wordsToProfiles.js';
 
 // State
 let user = null;
@@ -27,8 +27,10 @@ async function handleSignOut() {
     signOut();
 }
 
-async function handleRemoveWord() {
-    console.log('removes word');
+async function handleRemoveWord(word_id) {
+    console.log('word id: ', typeof word_id, 'profile id: ', typeof profile.id);
+    await removeWord(word_id, profile.id);
+    display();
 }
 
 async function handleAddWord(word_id) {
@@ -39,6 +41,7 @@ async function handleAddWord(word_id) {
     };
 
     await saveWord(dataToUpdate);
+    display();
 }
 
 // Components 

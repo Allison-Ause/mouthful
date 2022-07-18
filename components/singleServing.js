@@ -16,14 +16,14 @@ export default function createSingleServing(wordCard, handleRemoveWord, handleAd
         if (inPantry) {
             button.textContent = 'remove from pantry';
             button.addEventListener('click', async () => {
-                await handleRemoveWord({});
-                return;
+                await handleRemoveWord(word[0].id);
+                button.textContent = 'add to pantry';
             });
         }
         else {
             button.addEventListener('click', async () => {
                 await handleAddWord(word[0].id);
-                return;
+                button.textContent = 'remove from pantry';
             });
         }
     };
