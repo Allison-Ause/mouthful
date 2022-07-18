@@ -23,7 +23,7 @@ async function handlePageLoad() {
     for (let i = 0; i < 4; i++) {
         const index = Math.floor(Math.random() * words.length);
 
-        const poppedItem = words.splice(index, 1);
+        const [poppedItem] = words.splice(index, 1);
 
         randomWords.push(poppedItem);
     }
