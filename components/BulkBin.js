@@ -23,7 +23,6 @@ function WordCard(word) {
     span.classList.add('word');
     span.textContent = word.word;
 
-
     a.append(span);
 
     li.append(a);
