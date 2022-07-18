@@ -59,7 +59,7 @@ const ProfileWordsBox = createProfileWordsBox(
 );
 
 function display() {
-    User({ user });
+    User({ user, hideProfileLink: ownProfile });
     ProfileBox({ profile });
     ProfileWordsBox({ words: profile.saved_words, ownProfile });
 }
