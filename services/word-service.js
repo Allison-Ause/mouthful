@@ -29,6 +29,16 @@ export async function getWord(id) {
 export async function getProfile(userId) {
     const response = await client
         .from(PROFILE_TABLE)
+        .select('*')
+        .eq('user_id', userId)
+        .single();
+
+    return checkResponse(response);
+}
+
+export async function getProfileWithSavedWords(userId) {
+    const response = await client
+        .from(PROFILE_TABLE)
         .select(`*,
             saved_words:words_to_profile(
                 word:words(*)
@@ -43,10 +53,4 @@ export async function getProfile(userId) {
     data.saved_words = data.saved_words.map(x => x.word);
 
     return data;
-}
-
-export async function getProfileWithSavedWords(userId) {
-    // TODO: get the profile from user id
-    // join on foreign table relationship to get saved words
-    // on error, return null
 }

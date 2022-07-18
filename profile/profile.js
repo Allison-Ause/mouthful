@@ -3,7 +3,7 @@ import { protectPage } from '/utils.js';
 
 // Services
 import { getUser, signOut } from '/services/auth-service.js';
-import { getProfile } from '/services/word-service.js';
+import { getProfileWithSavedWords } from '/services/word-service.js';
 
 // Component Constructors
 import createUser from '/components/User.js';
@@ -22,7 +22,7 @@ async function handlePageLoad() {
     const searchParams = new URLSearchParams(window.location.search);
     const userId = searchParams.get('id');
 
-    profile = await getProfile(userId ?? user.id);
+    profile = await getProfileWithSavedWords(userId ?? user.id);
 
     if (!profile) return;
 
