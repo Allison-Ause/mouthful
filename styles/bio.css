@@ -48,6 +48,11 @@ hr {
     font-weight: bold;
 }
 
-a {
+.fave-link {
     color: black;
 }
+
+a:hover {
+    color: grey;
+}
+
