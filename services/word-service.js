@@ -1,6 +1,13 @@
 import { client, checkResponse } from './client.js';
 
 export async function getWords() {
+    const response = await client
+        .from('words')
+        .select(`
+            id,
+            word`);
+
+    return checkResponse(response);
     // TODO: get all words and return an array
     // on error, return null
 }
