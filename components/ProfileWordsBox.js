@@ -27,6 +27,16 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
                 });
             }
         }
+
+        if (words.length === 0) {
+            const li = document.createElement('li');
+            li.classList.add('empty-message');
+            ul.append(li);
+
+            const span = document.createElement('span');
+            span.textContent = 'No saved words.';
+            li.append(span);
+        }
     };
 }
 

@@ -20,3 +20,7 @@
     justify-content: space-around;
     align-items: baseline;
 }
+
+.empty-message {
+    margin: 10px 0;
+}
