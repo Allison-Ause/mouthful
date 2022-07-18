@@ -1,7 +1,6 @@
 export default function createSingleServing(wordCard, handleRemoveWord, handleAddWord) {
 
     return (word, user) => {
-        console.log(word);
         const h2 = wordCard.querySelector('h2');
         h2.textContent = word[0].word;
 
@@ -16,14 +15,14 @@ export default function createSingleServing(wordCard, handleRemoveWord, handleAd
         if (inPantry) {
             button.textContent = 'remove from pantry';
             button.addEventListener('click', async () => {
-                await handleRemoveWord();
-                return;
+                await handleRemoveWord(word[0].id);
+                button.textContent = 'add to pantry';
             });
         }
         else {
             button.addEventListener('click', async () => {
-                await handleAddWord();
-                return;
+                await handleAddWord(word[0].id);
+                button.textContent = 'remove from pantry';
             });
         }
     };
