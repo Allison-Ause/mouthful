@@ -9,6 +9,8 @@ let user = null;
 let words = [];
 let word = '';
 let id = '';
+let randomWords = [];
+
 
 // Action Handlers
 async function handlePageLoad() {
@@ -17,10 +19,19 @@ async function handlePageLoad() {
 
     words = await getWords(id, word);
 
+    for (let i = 0; i < 4; i++) {
+        const index = Math.floor(Math.random() * words.length);
+
+        const poppedItem = words.splice(index, 1);
+
+        randomWords.push(poppedItem);
+    }
+
     display();
 }
 
-// handle 
+
+
 
 async function handleSignOut() {
     signOut();
@@ -36,8 +47,7 @@ const BulkBin = createBulkBin(document.querySelector('#bulk-bin-list'));
 
 function display() {
     User({ user });
-    BulkBin({ words });
-
+    BulkBin({ words:randomWords });
 }
 
 handlePageLoad();

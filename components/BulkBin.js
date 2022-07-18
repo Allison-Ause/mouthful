@@ -12,7 +12,7 @@ export default function createBulkBin(root) {
 }
 
 function WordCard(word) {
-    console.log(word);
+
     const li = document.createElement('li');
     li.classList.add('word-card');
 
@@ -22,6 +22,7 @@ function WordCard(word) {
     const span = document.createElement('span');
     span.classList.add('word');
     span.textContent = word.word;
+
 
     a.append(span);
 
