@@ -10,9 +10,9 @@ export function getAuthRedirect() {
     return `/auth/?redirectUrl=${redirectUrl.toString()}`;
 }
 
-export function getWordByID(list, id) {
+export function getWordByID(list, wordID, profileID) {
     for (let word of list) {
-        if (word.id === Number(id)) return word;
+        if ((word.word_id === Number(wordID) && (word.profile_id === profileID))) return word;
     }
     return null;
 }
