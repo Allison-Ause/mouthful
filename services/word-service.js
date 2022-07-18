@@ -25,8 +25,22 @@ export async function getWord(id) {
 }
 
 export async function getProfile(userId) {
-    // TODO: get the profile from user id
-    // on error, return null
+    const response = await client
+        .from(PROFILE_TABLE)
+        .select(`*,
+            saved_words:words_to_profile(
+                word:words(*)
+            )
+        `)
+        .eq('user_id', userId)
+        .single();
+
+    if (!checkResponse(response)) return null;
+
+    const data = response.data;
+    data.saved_words = data.saved_words.map(x => x.word);
+
+    return data;
 }
 
 export async function getProfileWithSavedWords(userId) {
