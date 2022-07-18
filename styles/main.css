@@ -74,6 +74,10 @@ main {
     font-size: 1.4em;
 }
 
+.word:visited {
+    color: inherit;
+}
+
 a .word {
     color: black;
 }
