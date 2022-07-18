@@ -15,8 +15,11 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
+    const params = new URLSearchParams(window.location.search);
+    const id = Number(params.get('id'));
+
     profile = await getProfile(user.id);
-    word = await getWord(5);
+    word = await getWord(id);
 
     display();
 }
