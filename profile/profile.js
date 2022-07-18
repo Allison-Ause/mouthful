@@ -1,14 +1,14 @@
 // Utils
-import { protectPage } from '/utils.js';
+import { protectPage } from '../utils.js';
 
 // Services
-import { getUser, signOut } from '/services/auth-service.js';
-import { getProfileWithSavedWords } from '/services/word-service.js';
+import { getUser, signOut } from '../services/auth-service.js';
+import { getProfileWithSavedWords } from '../services/word-service.js';
 
 // Component Constructors
-import createUser from '/components/User.js';
-import createProfileBox from '/components/ProfileBox.js';
-import createProfileWordsBox from '/components/ProfileWordsBox.js';
+import createUser from '../components/User.js';
+import createProfileBox from '../components/ProfileBox.js';
+import createProfileWordsBox from '../components/ProfileWordsBox.js';
 import { removeWord } from '../services/wordsToProfiles.js';
 
 // State
