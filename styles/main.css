@@ -67,6 +67,10 @@ main {
     font-size: 1.4em;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
 
 footer {
     position: fixed;

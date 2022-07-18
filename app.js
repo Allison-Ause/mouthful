@@ -2,6 +2,7 @@ import { getUser, signOut } from './services/auth-service.js';
 import { getWords } from './services/word-service.js';
 import { protectPage } from './utils.js';
 import createUser from './components/User.js';
+import createBulkBin from './components/BulkBin.js';
 
 // State
 let user = null;
@@ -14,10 +15,8 @@ async function handlePageLoad() {
     user = getUser();
     protectPage(user);
 
-    const data = await getWords(id, word);
-    words = data;
+    words = await getWords(id, word);
 
-    console.log(words);
     display();
 }
 
@@ -33,10 +32,11 @@ const User = createUser(
     { handleSignOut }
 );
 
-// Create Component for Word List display
+const BulkBin = createBulkBin(document.querySelector('#bulk-bin-list'));
 
 function display() {
     User({ user });
+    BulkBin({ words });
 
 }
 
