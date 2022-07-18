@@ -16,8 +16,7 @@ async function handlePageLoad() {
     protectPage(user);
 
     profile = await getProfile(user.id);
-
-    word = await getWord(14);
+    word = await getWord(5);
 
     display();
 }
@@ -27,17 +26,28 @@ async function handleSignOut() {
 }
 
 async function handleRemoveWord(word_id) {
-    await removeWord(word_id, profile.id);
+    console.log('removing');
+    console.log('word id: ', word_id, 'profile id: ', profile.id);
+    const data = await removeWord(word_id, profile.id);
+
+    
+
     display();
 }
 
 async function handleAddWord(word_id) {
+    console.log('updating');
     const dataToUpdate = {
         word_id,
         profile_id: Number(profile.id)
     };
 
-    await saveWord(dataToUpdate);
+    const data = await saveWord(dataToUpdate);
+    data.profiles = { user_id: user.id };
+    console.log(data);
+
+    word[0].words_to_profile.push(data);
+
     display();
 }
 
