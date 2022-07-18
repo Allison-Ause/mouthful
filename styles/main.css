@@ -29,6 +29,8 @@ header {
     display: flex;
     align-items: center;
     background-color: var(--header-background);
+    background: black;
+    color: white;
 }
 
 nav {
