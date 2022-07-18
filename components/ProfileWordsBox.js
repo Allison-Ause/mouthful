@@ -10,10 +10,11 @@ export default function createProfileWordsBox(root) {
             li.classList.add('word-card');
             ul.append(li);
 
-            const span = document.createElement('span');
-            span.textContent = word.word;
-            span.classList.add('word');
-            li.append(span);
+            const a = document.createElement('a');
+            a.href = `/detail/?word=${word.id}`;
+            a.textContent = word.word;
+            a.classList.add('word');
+            li.append(a);
         }
     };
 }
