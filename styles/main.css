@@ -13,6 +13,10 @@ h1 {
     margin-left: 35px;
 }
 
+.logo {
+    width: 60px;
+}
+
 body {
     padding-bottom: 30px;
     font-family: 'Gentium Plus', serif;
