@@ -9,6 +9,10 @@ export default function createUser(root, { handleSignOut }) {
             const username = user?.email.split('@')[0];
             nameDisplay.textContent = username;
 
+            const profileLink = document.createElement('a');
+            profileLink.textContent = 'View Profile';
+            profileLink.href = '../profile';
+
             const signOutLink = document.createElement('a');
             signOutLink.textContent = 'Sign out';
             signOutLink.href = '';
@@ -16,7 +20,7 @@ export default function createUser(root, { handleSignOut }) {
                 handleSignOut();
             });
 
-            root.append(nameDisplay, signOutLink);
+            root.append(nameDisplay, profileLink, signOutLink);
         }
         else {
             const signInLink = document.createElement('a');
