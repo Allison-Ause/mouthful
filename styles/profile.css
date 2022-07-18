@@ -14,3 +14,9 @@
 #profile-words {
     border: 5px solid grey;
 }
+
+#profile-words li {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}

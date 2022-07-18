@@ -1,8 +1,8 @@
-export default function createProfileWordsBox(root) {
+export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
     initialize(root);
     const ul = root.querySelector('ul');
 
-    return ({ words }) => {
+    return ({ words, ownProfile }) => {
         ul.innerHTML = '';
 
         for (const word of words) {
@@ -15,6 +15,17 @@ export default function createProfileWordsBox(root) {
             a.textContent = word.word;
             a.classList.add('word');
             li.append(a);
+
+
+            if (ownProfile) {
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'delete';
+                li.append(deleteButton);
+
+                deleteButton.addEventListener('click', async () => {
+                    await handleDeleteSavedWord(word);
+                });
+            }
         }
     };
 }
