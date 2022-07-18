@@ -18,6 +18,7 @@ async function handleSignOut() {
     signOut();
 }
 
+
 // Components 
 const User = createUser(
     document.querySelector('#user'),
