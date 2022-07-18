@@ -21,7 +21,7 @@ function createUserList(user, wordID) {
             li.classList.add('user');
 
             const a = document.createElement('a');
-            a.href = `../profile/?id=${user.profile_id}`;
+            a.href = `../profile/?id=${user.profiles.user_id}`;
 
             const span = document.createElement('span');
             span.textContent = user.profiles.username;
