@@ -3,7 +3,7 @@ import { client, checkResponse } from './client.js';
 export async function saveWord(data) {
     const response = await client
         .from('words_to_profile')
-        .insert({ data })
+        .insert({ word_id: data.word_id, profile_id: data.profile_id })
         .single();
     return checkResponse(response);
 }
