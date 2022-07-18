@@ -35,7 +35,7 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
             await handleAddWord(word[0].id);
         });
     }
-    
+
     const wordCard = document.createElement('div');
     wordCard.append(h2, span, p, button);
     return wordCard;
