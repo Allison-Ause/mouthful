@@ -5,23 +5,30 @@ body {
     background-attachment: fixed;
 }
 
-.username-box {
+.scroll-box {
     border: solid 2px black;
     margin: 10px 20px;
-    height: 150px;
     padding: 20px 50px;
     overflow: scroll;
     background-color: rgba(255, 255, 255, 0.766);
 }
 
-.username-box::-webkit-scrollbar {
+.scroll-box::-webkit-scrollbar {
     display: none;
 }
 
-.username-box {
+.scroll-box {
     -ms-overflow-style: none;
     scrollbar-width: none;
     margin-bottom: 45px;
+}
+
+.recipe-box {
+    /* TODO: size limits of whatever */
+}
+
+.username-box {
+    height: 150px;
 }
 
 .users-with-word {
@@ -69,7 +76,7 @@ button {
     margin-top: 25px;
 }
 
-.user-list {
+.sub-heading {
     color: white;
     margin-top: 30px;
 }

@@ -15,10 +15,16 @@ export async function getWords() {
 export async function getWord(id) {
     const response = await client
         .from('words')
-        .select(`*, 
-            profiles:words_to_profile (
-                profile:profiles (*)
-            )`)
+        .select(`*,
+            recipes(
+                id,
+                profile: profiles(*),
+                sentence
+            ), 
+            profiles: words_to_profile(
+                profile: profiles(*)
+            )`
+        )
         .eq('id', id)
         .single();
     if (!checkResponse(response)) return null;
