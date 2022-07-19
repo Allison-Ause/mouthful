@@ -70,7 +70,7 @@ const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'
 function display() {
     User({ user });
     SingleServing(word, user);
-    UsersWithWord({ profiles: word.profiles, curUser: user }, wordID);
+    UsersWithWord({ profiles: word.profiles, curUser: user });
 }
 
 handlePageLoad();
