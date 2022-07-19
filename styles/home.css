@@ -3,8 +3,9 @@
 body {
     background-image: url('../assets/bulk-bin.jpg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top right;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #bulk-bin-header {
