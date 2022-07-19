@@ -12,6 +12,14 @@ body {
     background: black;
 }
 
+#bulk-p {
+    font-style: normal;
+    font-size: 1.2em;
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #bulk-bin-list {
     text-align: center;
     
