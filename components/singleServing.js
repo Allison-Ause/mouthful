@@ -10,8 +10,9 @@ export default function createSingleServing(wordCard, handleRemoveWord, handleAd
 
 function createWordCard(word, user, handleRemoveWord, handleAddWord) {
 
-    const h2 = document.createElement('h2');
-    h2.textContent = word.word;
+    const h3 = document.createElement('h3');
+    h3.classList.add('word');
+    h3.textContent = word.word;
 
     const span = document.createElement('span');
     span.classList.add('word-type');
@@ -41,7 +42,7 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
     }
 
     const wordCard = document.createElement('div');
-    wordCard.append(h2, span, hr, p, button);
+    wordCard.append(h3, span, hr, p, button);
     return wordCard;
 }
 

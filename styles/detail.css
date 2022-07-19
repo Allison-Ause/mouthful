@@ -1,3 +1,9 @@
+body {
+    background: url(../assets/banana.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
 .username-box {
     display: flex;
     border: solid 2px black;
@@ -29,4 +35,18 @@
     width: fit-content;
     padding: 3px;
     margin: 10px;
+}
+
+.word {
+    margin-bottom: 0px;
+    padding-top: 65px;
+}
+
+hr {
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 25px;
 }
