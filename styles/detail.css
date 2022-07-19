@@ -1,7 +1,8 @@
 body {
     background: url(../assets/banana.jpg);
     background-size: cover;
-    background-position: center;
+    background-position: top right;
+    background-attachment: fixed;
 }
 
 .username-box {
