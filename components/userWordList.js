@@ -1,6 +1,6 @@
 export default function createUsersWithWord(usersBox) {
     
-    return ({ profiles, curUser }, wordID) => {
+    return ({ profiles, curUser }) => {
         usersBox.innerHTML = '';
 
         const ul = document.createElement('ul');
@@ -32,7 +32,6 @@ function createUserList(profile) {
 
     const span = document.createElement('span');
     span.textContent = profile.username;
-    console.log(profile);
 
     a.append(span);
     li.append(a);
