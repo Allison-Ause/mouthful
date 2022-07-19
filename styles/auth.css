@@ -1,3 +1,10 @@
+body {
+    background: url(../assets/auth-spoons.jpg);
+    background-size: cover;
+    background-position: top right;
+    background-attachment: fixed;
+}
+
 form {
     width: 325px;
     margin: 20px auto;
@@ -30,4 +37,8 @@ form label {
 .error {
     min-height: 1em;
     color: red;
+}
+
+form button {
+    width: 65px;
 }
