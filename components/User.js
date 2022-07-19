@@ -12,7 +12,7 @@ export default function createUser(root, { handleSignOut }) {
 
             if (!hideProfileLink) {
                 const profileLink = document.createElement('a');
-                profileLink.textContent = 'View Profile';
+                profileLink.textContent = 'View Pantry';
                 profileLink.href = '../profile';
                 root.append(profileLink);
             }
