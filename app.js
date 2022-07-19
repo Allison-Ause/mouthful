@@ -1,5 +1,6 @@
 import { getUser, signOut } from './services/auth-service.js';
 import { getProfile, getWords } from './services/word-service.js';
+import { targetAddWord } from './services/wordsToProfiles.js';
 import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createBulkBin from './components/BulkBin.js';
@@ -27,6 +28,10 @@ async function handlePageLoad() {
 
         randomWords.push(poppedItem);
     }
+
+    targetAddWord(userActivity => {
+        console.log(userActivity);
+    });
 
     display();
 }
