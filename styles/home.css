@@ -1,19 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap');
 
+body {
+    background-image: url('../assets/bulk-bin.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 #bulk-bin-header {
     background: black;
-    color: white;
 }
 
-h2 {
+h1 {
     margin: 40px 0px;
     font-family: 'Gentium Plus', serif;
     font-style: bold;
+    color: white;
 }
 
 #bulk-bin-list {
     text-align: center;
-    border: 5px solid grey;
+    
 }
 
+.word-card {
+    text-align: center;
+}

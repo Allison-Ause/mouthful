@@ -14,7 +14,10 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
     h2.textContent = word.word;
 
     const span = document.createElement('span');
+    span.classList.add('word-type');
     span.textContent = word.type;
+
+    const hr = document.createElement('hr');
 
     const p = document.createElement('p');
     p.textContent = word.definition;
@@ -38,7 +41,7 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
     }
 
     const wordCard = document.createElement('div');
-    wordCard.append(h2, span, p, button);
+    wordCard.append(h2, span, hr, p, button);
     return wordCard;
 }
 
