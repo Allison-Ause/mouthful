@@ -10,20 +10,23 @@ export async function getWords() {
             word`);
 
     return checkResponse(response);
-    // TODO: get all words and return an array
-    // on error, return null
 }
 
 export async function getWord(id) {
     const response = await client
         .from('words')
         .select(`*, 
-            words_to_profile (
-                *, 
-                profiles (*)
+            profiles:words_to_profile (
+                profile:profiles (*)
             )`)
-        .eq('id', id);
-    return checkResponse(response);
+        .eq('id', id)
+        .single();
+    if (!checkResponse(response)) return null;
+
+    const data = response.data;
+    data.profiles = data.profiles.map(x => x.profile);
+
+    return data;
 }
 
 export async function getProfile(userId) {
