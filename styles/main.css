@@ -48,6 +48,10 @@ header {
     color: white;
 }
 
+header a:hover {
+    color: grey;
+}
+
 .nav {
     color: white;
 }
