@@ -18,6 +18,8 @@ export default function createUsersWithWord(usersBox) {
             const span = document.createElement('span');
             span.textContent = 'no users with this snack';
             ul.append(span);
+
+            ul.classList.add('centered-users-list');
         }
         usersBox.append(ul);
     };

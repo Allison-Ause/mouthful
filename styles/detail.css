@@ -6,14 +6,10 @@ body {
 }
 
 .username-box {
-    display: flex;
     border: solid 2px black;
     margin: 10px 20px;
     height: 150px;
-    /* justify-content: center;*/
-    justify-content: flex-start;
-    padding-left: 27px;
-    padding-right: 27px;
+    padding: 20px 50px;
     overflow: scroll;
     background-color: rgba(255, 255, 255, 0.766);
 }
@@ -29,10 +25,16 @@ body {
 }
 
 .users-with-word {
+    min-height: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 10px;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.centered-users-list {
+    justify-content: center;
+    align-items: center;
 }
 
 .users-with-word a {
@@ -40,11 +42,8 @@ body {
 }
 
 .user {
-    /* border-bottom: solid 2px black; */
     text-decoration: underline;
     width: fit-content;
-    padding: 3px;
-    margin: 10px;
     font-weight: bold;
 }
 
@@ -74,4 +73,3 @@ button {
     color: white;
     margin-top: 30px;
 }
-
