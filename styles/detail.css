@@ -28,7 +28,7 @@ body {
 }
 
 .username-box {
-    height: 150px;
+    height: 100px;
 }
 
 .users-with-word {
@@ -79,4 +79,52 @@ button {
 .sub-heading {
     color: white;
     margin-top: 30px;
+}
+
+.recipe-box {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 35px;
+    text-align: left;
+    padding: 50px;
+}
+
+.recipe-box ul {
+    display: contents;
+}
+
+.recipe-sentence {
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+.recipe-username {
+    font-style: italic;
+    display: block;
+    text-align: right;
+}
+
+.recipe-username::before {
+    content: "— ";
+}
+
+.comment-form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+.comment-form textarea {
+    resize: none;
+}
+
+.comment-form label {
+    display: contents;
+}
+
+.comment-form button {
+    margin: 0;
+    align-self: flex-end;
 }

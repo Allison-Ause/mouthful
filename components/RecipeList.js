@@ -16,15 +16,16 @@ function Recipe({ recipe }) {
 
     const li = document.createElement('li');
 
+    
+    const recipeSentence = document.createElement('p');
+    recipeSentence.textContent = recipe.sentence;
+    recipeSentence.classList.add('recipe-sentence');
+    
     const recipeUsername = document.createElement('span');
     recipeUsername.textContent = recipe.profile.username;
     recipeUsername.classList.add('recipe-username');
 
-    const recipeSentence = document.createElement('p');
-    recipeSentence.textContent = recipe.sentence;
-    recipeSentence.classList.add('recipe-sentence');
-
-    li.append(recipeUsername, recipeSentence);
+    li.append(recipeSentence, recipeUsername);
 
     return li;
 }

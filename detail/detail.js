@@ -24,8 +24,6 @@ async function handlePageLoad() {
 
     profile = await getProfile(user.id);
     word = await getWord(wordID);
-    
-    console.log(word);
 
     display();
 }
