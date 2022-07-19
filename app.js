@@ -1,23 +1,23 @@
 import { getUser, signOut } from './services/auth-service.js';
-import { getWords } from './services/word-service.js';
+import { getProfile, getWords } from './services/word-service.js';
 import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createBulkBin from './components/BulkBin.js';
 
-
 // State
 let user = null;
+let profile = null;
 let words = [];
 let word = '';
 let id = '';
 let randomWords = [];
 
-
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
-    protectPage(user);
+    if (protectPage(user)) return;
 
+    profile = await getProfile(user.id);
     words = await getWords(id, word);
 
     for (let i = 0; i < 4; i++) {
@@ -30,9 +30,6 @@ async function handlePageLoad() {
 
     display();
 }
-
-
-
 
 async function handleSignOut() {
     signOut();
@@ -47,7 +44,7 @@ const User = createUser(
 const BulkBin = createBulkBin(document.querySelector('#bulk-bin-list'));
 
 function display() {
-    User({ user });
+    User({ profile });
     BulkBin({ words:randomWords });
 }
 

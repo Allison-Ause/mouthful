@@ -19,15 +19,13 @@ let ownProfile = false;
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
-    protectPage(user);
+    if (protectPage(user)) return true;
 
     const searchParams = new URLSearchParams(window.location.search);
     const userId = searchParams.get('id');
 
     ownProfile = userId === null;
     profile = await getProfileWithSavedWords(userId ?? user.id);
-
-    if (!profile) return;
 
     display();
 }
@@ -59,7 +57,7 @@ const ProfileWordsBox = createProfileWordsBox(
 );
 
 function display() {
-    User({ user, hideProfileLink: ownProfile });
+    User({ profile, hideProfileLink: ownProfile });
     ProfileBox({ profile });
     ProfileWordsBox({ words: profile.saved_words, ownProfile });
 }

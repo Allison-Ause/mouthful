@@ -1,12 +1,12 @@
 import { getAuthRedirect } from '../utils.js';
 export default function createUser(root, { handleSignOut }) {
 
-    return ({ user, hideProfileLink }) => {
+    return ({ profile, hideProfileLink }) => {
         root.innerHTML = '';
 
-        if (user) {
+        if (profile) {
             const nameDisplay = document.createElement('span');
-            const username = user?.email.split('@')[0];
+            const username = profile.username;
             nameDisplay.textContent = username;
             root.append(nameDisplay);
 

@@ -8,14 +8,14 @@ import createUsersWithWord from '../components/userWordList.js';
 
 // State
 let user = null;
-let word = null;
 let profile = null;
+let word = null;
 let wordID = null;
 
 // Action Handlers
 async function handlePageLoad() {
     user = getUser();
-    protectPage(user);
+    if (protectPage(user)) return;
 
     const params = new URLSearchParams(window.location.search);
     wordID = Number(params.get('id'));
@@ -68,7 +68,7 @@ const SingleServing = createSingleServing(document.querySelector('.word-card'),
 const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'));
 
 function display() {
-    User({ user });
+    User({ profile });
     SingleServing(word, user);
     UsersWithWord({ profiles: word.profiles, curUser: user });
 }
