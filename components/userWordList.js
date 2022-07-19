@@ -1,6 +1,6 @@
 export default function createUsersWithWord(usersBox) {
     
-    return ({ users, curUser }, wordID) => {
+    return ({ profiles, curUser }, wordID) => {
         usersBox.innerHTML = '';
 
         const ul = document.createElement('ul');
@@ -8,9 +8,9 @@ export default function createUsersWithWord(usersBox) {
 
         let displayed = false;
 
-        for (let user of users) {
-            if (user.profiles.user_id === curUser.id) continue;
-            const li = createUserList(user, wordID);
+        for (let profile of profiles) {
+            if (profile.user_id === curUser.id) continue;
+            const li = createUserList(profile);
             ul.append(li);
             displayed = true;
         }
@@ -23,20 +23,18 @@ export default function createUsersWithWord(usersBox) {
     };
 }
 
-function createUserList(user, wordID) {
-   
-    if (user.word_id === wordID) {
-        const li = document.createElement('li');
-        li.classList.add('user');
+function createUserList(profile) {
+    const li = document.createElement('li');
+    li.classList.add('user');
 
-        const a = document.createElement('a');
-        a.href = `../profile/?id=${user.profiles.user_id}`;
+    const a = document.createElement('a');
+    a.href = `../profile/?id=${profile.user_id}`;
 
-        const span = document.createElement('span');
-        span.textContent = user.profiles.username;
+    const span = document.createElement('span');
+    span.textContent = profile.username;
+    console.log(profile);
 
-        a.append(span);
-        li.append(a);
-        return li;
-    }
+    a.append(span);
+    li.append(a);
+    return li;
 }

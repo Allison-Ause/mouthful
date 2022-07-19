@@ -11,28 +11,29 @@ export default function createSingleServing(wordCard, handleRemoveWord, handleAd
 function createWordCard(word, user, handleRemoveWord, handleAddWord) {
 
     const h2 = document.createElement('h2');
-    h2.textContent = word[0].word;
+    h2.textContent = word.word;
 
     const span = document.createElement('span');
-    span.textContent = word[0].type;
+    span.textContent = word.type;
 
     const p = document.createElement('p');
-    p.textContent = word[0].definition;
+    p.textContent = word.definition;
 
     const button = document.createElement('button');
     const inPantry = inUserPantry(word, user);
 
+
     if (inPantry) {
         button.textContent = 'remove from pantry';
         button.addEventListener('click', async () => {
-            await handleRemoveWord(word[0].id);
+            await handleRemoveWord(word.id);
             button.textContent = 'add to pantry';
         });
     }
     else {
         button.textContent = 'add to pantry';
         button.addEventListener('click', async () => {
-            await handleAddWord(word[0].id);
+            await handleAddWord(word.id);
         });
     }
 
@@ -42,12 +43,9 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
 }
 
 function inUserPantry(word, user) {
-    try {
-        for (let i of word[0].words_to_profile) {
-            if (i.profiles.user_id === user.id) return true;
-        }}
-    catch {
-        return false;
+
+    for (let profile of word.profiles) {
+        if (profile.user_id === user.id) return true;
     }
     return false;
 }
