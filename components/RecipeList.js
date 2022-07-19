@@ -6,13 +6,30 @@ export default function createRecipeList(root) {
         ul.innerHTML = '';
 
         for (const recipe of recipes) {
-            const li = document.createElement('li');
-            // TODO: implement this display
+            const li = Recipe({ recipe });
+            ul.append(li);
         }
     };
 }
 
+function Recipe({ recipe }) {
+
+    const li = document.createElement('li');
+
+    const recipeUsername = document.createElement('span');
+    recipeUsername.textContent = recipe.profile.username;
+    recipeUsername.classList.add('recipe-username');
+
+    const recipeSentence = document.createElement('p');
+    recipeSentence.textContent = recipe.sentence;
+    recipeSentence.classList.add('recipe-sentence');
+
+    li.append(recipeUsername, recipeSentence);
+
+    return li;
+}
+
 function initialize(root) {
-    const ul = document.create('ul');
+    const ul = document.createElement('ul');
     root.append(ul);
 }

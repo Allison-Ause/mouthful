@@ -5,12 +5,14 @@ import { getProfile, getWord } from '../services/word-service.js';
 import createSingleServing from '../components/singleServing.js';
 import { removeWord, saveWord } from '../services/wordsToProfiles.js';
 import createUsersWithWord from '../components/userWordList.js';
+import createRecipeList from '../components/RecipeList.js';
 
 // State
 let user = null;
 let profile = null;
 let word = null;
 let wordID = null;
+
 
 // Action Handlers
 async function handlePageLoad() {
@@ -22,6 +24,8 @@ async function handlePageLoad() {
 
     profile = await getProfile(user.id);
     word = await getWord(wordID);
+    
+    console.log(word);
 
     display();
 }
@@ -67,10 +71,13 @@ const SingleServing = createSingleServing(document.querySelector('.word-card'),
 
 const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'));
 
+const RecipeList = createRecipeList(document.querySelector('.recipe-box'));
+
 function display() {
     User({ profile });
     SingleServing(word, user);
     UsersWithWord({ profiles: word.profiles, curUser: user });
+    RecipeList({ recipes: word.recipes });
 }
 
 handlePageLoad();
