@@ -1,18 +1,21 @@
+body {
+    background: url(../assets/profiles.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: top 80px right 0;
+}
+
 .username {
     font-size: 2em;
-    text-decoration: underline;
+    text-transform: capitalize;
 }
 
 .box {
-    margin: 20px
+    /* margin: 20px */
 }
 
 #profile-box {
-    border: 5px solid grey;
-}
-
-#profile-words {
-    border: 5px solid grey;
+    color: white;
 }
 
 #profile-words li {
