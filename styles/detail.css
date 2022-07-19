@@ -1,11 +1,21 @@
+body {
+    background: url(../assets/banana.jpg);
+    background-size: cover;
+    background-position: top right;
+    background-attachment: fixed;
+}
+
 .username-box {
     display: flex;
     border: solid 2px black;
     margin: 10px 20px;
     height: 150px;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;*/
+    justify-content: flex-start;
+    padding-left: 27px;
+    padding-right: 27px;
     overflow: scroll;
+    background-color: rgba(255, 255, 255, 0.766);
 }
 
 .username-box::-webkit-scrollbar {
@@ -15,6 +25,7 @@
 .username-box {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    margin-bottom: 45px;
 }
 
 .users-with-word {
@@ -24,9 +35,43 @@
     padding: 10px;
 }
 
+.users-with-word a {
+    color: black;
+}
+
 .user {
-    border-bottom: solid 2px black;
+    /* border-bottom: solid 2px black; */
+    text-decoration: underline;
     width: fit-content;
     padding: 3px;
     margin: 10px;
+    font-weight: bold;
 }
+
+.user span:hover {
+    color: grey;
+}
+
+.word-card {
+    min-height: 375px;
+}
+
+.word {
+    margin-bottom: 0px;
+    padding-top: 65px;
+}
+
+hr {
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 25px;
+}
+
+.user-list {
+    color: white;
+    margin-top: 30px;
+}
+

@@ -13,6 +13,12 @@ h1 {
     margin-left: 35px;
 }
 
+main h1 {
+    margin: 40px 0px;
+    font-style: bold;
+    color: white;
+}
+
 .logo {
     width: 60px;
 }
@@ -33,6 +39,8 @@ main {
     margin: auto;
 }
 
+
+
 header {
     top: 0;
     display: flex;
@@ -40,6 +48,10 @@ header {
     background-color: var(--header-background);
     background: black;
     color: white;
+}
+
+header a:hover {
+    color: grey;
 }
 
 .nav {
@@ -82,7 +94,7 @@ main {
 .word {
     color: inherit;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.5em;
 }
 
 .word:visited {
@@ -102,4 +114,20 @@ footer {
     display: flex;
     justify-content: flex-end;
     background-color: var(--footer-background);
+}
+
+button {
+    font-family: inherit;
+    border: 1px solid black;
+    border-radius: 0;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.384);
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.685);
+}
+
+button:active {
+    background-color: rgba(255, 255, 255, 0.925);
 }

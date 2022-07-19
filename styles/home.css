@@ -11,13 +11,6 @@ body {
     background: black;
 }
 
-h1 {
-    margin: 40px 0px;
-    font-family: 'Gentium Plus', serif;
-    font-style: bold;
-    color: white;
-}
-
 #bulk-bin-list {
     text-align: center;
     
