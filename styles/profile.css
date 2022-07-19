@@ -2,7 +2,7 @@ body {
     background: url(../assets/profiles.jpg);
     background-attachment: fixed;
     background-size: cover;
-    background-position: top 80px right 0;
+    background-position: top right;
 }
 
 .username {
