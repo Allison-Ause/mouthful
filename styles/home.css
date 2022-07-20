@@ -26,9 +26,13 @@ section ul {
 
 #bulk-bin-list {
     text-align: center;
-    
+}
+
+hr {
+    border-bottom: 1px solid black;
+    margin: 8px 0 0 0;
 }
 
 .word-card {
-    text-align: center;
+    padding: 25px 50px;
 }
