@@ -1,7 +1,7 @@
 import { getUser, signOut } from '../services/auth-service.js';
 import { getWordByID, protectPage } from '../utils.js';
 import createUser from '../components/User.js';
-import { getProfile, getWord, addRecipe } from '../services/word-service.js';
+import { getProfile, getWord, addRecipe, removeRecipe } from '../services/word-service.js';
 import createSingleServing from '../components/singleServing.js';
 import { removeWord, saveWord } from '../services/wordsToProfiles.js';
 import createUsersWithWord from '../components/userWordList.js';
@@ -71,6 +71,18 @@ async function handleAddRecipe(sentence) {
     display();
 }
 
+async function handleRemoveRecipe(recipeId) {
+    await removeRecipe(recipeId);
+
+    const index = word.recipes.findIndex(x => x.id === recipeId);
+
+    if (index !== -1) {
+        word.recipes.splice(index, 1);
+    }
+
+    display();
+}
+
 // Components 
 const User = createUser(
     document.querySelector('#user'),
@@ -87,6 +99,8 @@ const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'
 const RecipeList = createRecipeList(document.querySelector('.recipe-box'));
 
 createRecipeForm(document.querySelector('.recipe-form'), { handleAddRecipe });
+
+
 
 function display() {
     User({ profile });

@@ -12,11 +12,10 @@ export default function createRecipeList(root) {
     };
 }
 
-function Recipe({ recipe }) {
+function Recipe({ recipe, profile }) {
 
     const li = document.createElement('li');
 
-    
     const recipeSentence = document.createElement('p');
     recipeSentence.textContent = recipe.sentence;
     recipeSentence.classList.add('recipe-sentence');
@@ -26,6 +25,14 @@ function Recipe({ recipe }) {
     recipeUsername.classList.add('recipe-username');
 
     li.append(recipeSentence, recipeUsername);
+
+    if (profile.id === recipe.profile_id) {
+        const deleteButton = document.createElement('span');
+        deleteButton.textContent = 'delete';
+        deleteButton.classList.add('delete-button');
+
+        li.append(deleteButton);
+    }
 
     return li;
 }

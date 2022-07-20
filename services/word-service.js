@@ -49,6 +49,15 @@ export async function addRecipe(word, profile, sentence) {
 
 }
 
+export async function removeRecipe(recipeId) {
+    const response = await client
+        .from('recipes')
+        .delete()
+        .eq('id', recipeId)
+        .single();
+    
+    return checkResponse(response);
+}
 
 export async function getProfile(userId) {
     const response = await client
