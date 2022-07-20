@@ -3,6 +3,7 @@ export function createNotification(box, data) {
 
     const div = document.createElement('div');
     div.classList.add('notification');
+    div.setAttribute('id', 'popup');
 
     const span = document.createElement('span');
     span.textContent = `chef ${data.username} added `;
@@ -16,8 +17,12 @@ export function createNotification(box, data) {
     const deleteButton = document.createElement('button');
     deleteButton.textContent = 'x';
     deleteButton.addEventListener('click', () => {
-        div.classList.add('hidden');
+        div.setAttribute('id', 'take-down');
+        setTimeout(() => {
+            div.classList.add('hidden');
+        }, '900');
     });
+
 
     a.append(span2);
     span.append(a);

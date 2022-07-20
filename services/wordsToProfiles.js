@@ -26,7 +26,6 @@ function getUserProfile(profiles, userID) {
 export function targetAddWord(listener) {
     client.from('words_to_profile')
         .on('INSERT', async (payload) => {
-            console.log(`${payload.eventType} received: `, payload);
             const newPayload = payload.new;
             
             const data = await getWord(newPayload.word_id);
@@ -40,8 +39,8 @@ export function targetAddWord(listener) {
             };
             listener(word);
         })
-        .subscribe((status) => {
-            console.log('subscribe status: ', status);
-        });
-    
+        .subscribe();
+    return () => {
+        client.removeSubscription(targetAddWord);
+    };  
 }
