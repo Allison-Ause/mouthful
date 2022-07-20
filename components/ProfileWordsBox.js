@@ -19,7 +19,7 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
 
             if (ownProfile) {
                 const deleteButton = document.createElement('button');
-                deleteButton.textContent = 'delete';
+                deleteButton.textContent = 'remove from pantry';
                 li.append(deleteButton);
 
                 deleteButton.addEventListener('click', async () => {

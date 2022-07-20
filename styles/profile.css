@@ -12,7 +12,14 @@ body {
 }
 
 #profile-words li {
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+}
+
+#profile-words button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
 }
