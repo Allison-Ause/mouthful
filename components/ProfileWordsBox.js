@@ -30,11 +30,11 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
 
         if (words.length === 0) {
             const li = document.createElement('li');
-            li.classList.add('empty-message');
+            li.classList.add('word-card');
             ul.append(li);
 
             const span = document.createElement('span');
-            span.textContent = 'No saved words.';
+            span.textContent = 'empty shelves';
             li.append(span);
         }
     };

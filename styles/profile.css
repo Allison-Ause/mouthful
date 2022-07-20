@@ -11,10 +11,6 @@ body {
     word-spacing: 0.11em;
 }
 
-#profile-box {
-    color: white;
-}
-
 #profile-words li {
     display: flex;
     justify-content: space-around;
