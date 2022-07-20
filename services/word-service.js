@@ -50,7 +50,6 @@ export async function addRecipe(word, profile, sentence) {
 }
 
 export async function removeRecipe(recipeId) {
-    console.log('recipeId is', recipeId);
     const response = await client
         .from('recipes')
         .delete()
