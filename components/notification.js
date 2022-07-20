@@ -14,9 +14,15 @@ export function createNotification(box, data) {
     const span2 = document.createElement('span');
     span2.textContent = data.word;
 
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'x';
+    deleteButton.addEventListener('click', () => {
+        div.classList.add('hidden');
+    });
+
     a.append(span2);
     span.append(a);
-    div.append(span);
+    div.append(deleteButton, span);
 
     box.append(div);
 }

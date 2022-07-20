@@ -144,3 +144,18 @@ button:active {
     padding: 10px;
     margin: 10px;
 }
+
+.notification button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    height: 15px;
+    width: 15px;
+    padding: 0px;
+    border: none;
+    line-height: 0;
+}
+
+.hidden {
+    display: none;
+}
