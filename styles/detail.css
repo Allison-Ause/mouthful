@@ -98,26 +98,36 @@ button {
     margin-bottom: 2px;
 }
 
+.username-delete-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.delete-button:hover {
+    color: rgba(128, 128, 128, 0.702);
+    cursor: default;
+}
+
+.delete-button {
+justify-content: flex-start;
+align-items: flex-end;
+font-size: 12px;
+display: block;
+text-align: right;
+color: rgb(132, 131, 131);
+margin-top: auto;
+}
+
 .recipe-username {
+    justify-content: flex-end;
+    align-items: flex-end;
     font-style: italic;
-    display: block;
     text-align: right;
+    margin-left: auto;
 }
 
 .recipe-username::before {
     content: "— ";
-}
-
-.delete-button:hover {
-        color: rgba(128, 128, 128, 0.702);
-        cursor: default;
-}
-
-.delete-button {
-    font-size: 12px;
-    display: block;
-    text-align: right;
-    color: rgb(132, 131, 131)
 }
 
 .recipe-form {

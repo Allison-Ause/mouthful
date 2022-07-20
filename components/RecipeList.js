@@ -23,10 +23,6 @@ function Recipe({ recipe, profile, handleRemoveRecipe }) {
     const div = document.createElement('div');
     div.classList.add('username-delete-row');
 
-    const recipeUsername = document.createElement('span');
-    recipeUsername.textContent = recipe.profile.username;
-    recipeUsername.classList.add('recipe-username');
-
     const deleteButton = document.createElement('span');
 
     if (profile.id === recipe.profile.id) {
@@ -38,7 +34,11 @@ function Recipe({ recipe, profile, handleRemoveRecipe }) {
         });
     }
 
-    div.append(recipeUsername, deleteButton);
+    const recipeUsername = document.createElement('span');
+    recipeUsername.textContent = recipe.profile.username;
+    recipeUsername.classList.add('recipe-username');
+
+    div.append(deleteButton, recipeUsername);
 
     li.append(recipeSentence, div);
 
