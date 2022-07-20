@@ -14,7 +14,7 @@ h1 {
 }
 
 main h1 {
-    margin: 40px 0px;
+    margin: 0 0 40px 0;
     font-style: bold;
     color: white;
 }
@@ -24,6 +24,10 @@ main h1 {
 }
 
 body {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+    justify-content: space-between;
     font-family: 'Gentium Plus', serif;
     background: var(--background);
 }
@@ -37,8 +41,6 @@ main {
     max-width: 500px;
     margin: auto;
 }
-
-
 
 header {
     top: 0;
@@ -100,19 +102,24 @@ a .word {
 }
 
 footer {
-    position: sticky;
+    margin-top: auto;
     bottom: 0;
     left: 0;
     right: 0;
-    margin-top: 50px;
     display: flex;
     justify-content: flex-end;
-    background-color: var(--footer-background);
 }
 
-.bio-button {
-    margin-right: 20px;
-    margin-bottom: 20px;
+.bio-link {
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+    border-top-left-radius: 10px;
+    text-decoration: underline;
+}
+
+.bio-link:hover {
+    color: gray;
 }
 
 button {

@@ -21,7 +21,6 @@ body {
 .username-box {
     -ms-overflow-style: none;
     scrollbar-width: none;
-    margin-bottom: 45px;
 }
 
 .users-with-word {

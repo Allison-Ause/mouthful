@@ -6,8 +6,6 @@ body {
 }
 
 form {
-    width: 325px;
-    margin: 20px auto;
     padding: 10px 20px;
     background: white;
     border: 1px solid black;
