@@ -72,12 +72,14 @@ async function handleAddRecipe(sentence) {
 }
 
 async function handleRemoveRecipe(recipeId) {
-    await removeRecipe(recipeId);
 
+    await removeRecipe(recipeId);
+    
     const index = word.recipes.findIndex(x => x.id === recipeId);
 
     if (index !== -1) {
         word.recipes.splice(index, 1);
+
     }
 
     display();
@@ -96,7 +98,7 @@ const SingleServing = createSingleServing(document.querySelector('.word-card'),
 
 const UsersWithWord = createUsersWithWord(document.querySelector('.username-box'));
 
-const RecipeList = createRecipeList(document.querySelector('.recipe-box'));
+const RecipeList = createRecipeList(document.querySelector('.recipe-box'), { handleRemoveRecipe });
 
 createRecipeForm(document.querySelector('.recipe-form'), { handleAddRecipe });
 
@@ -106,7 +108,9 @@ function display() {
     User({ profile });
     SingleServing(word, user);
     UsersWithWord({ profiles: word.profiles, curUser: user });
-    RecipeList({ recipes: word.recipes });
+    RecipeList({ recipes: word.recipes, profile });
+
+
 }
 
 handlePageLoad();

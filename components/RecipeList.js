@@ -1,18 +1,18 @@
-export default function createRecipeList(root) {
+export default function createRecipeList(root, { handleRemoveRecipe }) {
     initialize(root);
     const ul = root.querySelector('ul');
 
-    return ({ recipes }) => {
+    return ({ recipes, profile }) => {
         ul.innerHTML = '';
 
         for (const recipe of recipes) {
-            const li = Recipe({ recipe });
+            const li = Recipe({ recipe, profile, handleRemoveRecipe });
             ul.append(li);
         }
     };
 }
 
-function Recipe({ recipe, profile }) {
+function Recipe({ recipe, profile, handleRemoveRecipe }) {
 
     const li = document.createElement('li');
 
@@ -26,10 +26,17 @@ function Recipe({ recipe, profile }) {
 
     li.append(recipeSentence, recipeUsername);
 
-    if (profile.id === recipe.profile_id) {
+
+    if (profile.id === recipe.profile.id) {
+
         const deleteButton = document.createElement('span');
         deleteButton.textContent = 'delete';
         deleteButton.classList.add('delete-button');
+
+        deleteButton.addEventListener('click', async () => {
+            await handleRemoveRecipe(recipe.id);
+            
+        });
 
         li.append(deleteButton);
     }
