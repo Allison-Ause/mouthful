@@ -108,7 +108,7 @@ button {
     content: "— ";
 }
 
-.comment-form {
+.recipe-form {
     display: flex;
     flex-flow: column nowrap;
     gap: 8px;
@@ -116,15 +116,15 @@ button {
     padding-top: 10px;
 }
 
-.comment-form textarea {
+.recipe-form textarea {
     resize: none;
 }
 
-.comment-form label {
+.recipe-form label {
     display: contents;
 }
 
-.comment-form button {
+.recipe-form button {
     margin: 0;
     align-self: flex-end;
 }
