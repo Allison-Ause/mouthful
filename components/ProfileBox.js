@@ -11,6 +11,6 @@ function initialize(root) {
     root.innerHTML = '';
 
     const usernameDisplay = document.createElement('h1');
-    usernameDisplay.classList.add('username');
+    usernameDisplay.classList.add('username', 'shadowed');
     root.append(usernameDisplay);
 }
