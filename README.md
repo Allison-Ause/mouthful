@@ -1,6 +1,8 @@
-## The Golden Rule:
+## mouthful ##
 
-🦸 🦸‍♂️ `Stop starting and start finishing.` 🏁
+`Bite-sized additions to your word pantry — enjoy delicious discourse, everyday`
+
+
 
 1. Limit Work in Progress (WIP)
 1. Validate each line of code before moving forward
