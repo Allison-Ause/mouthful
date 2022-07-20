@@ -35,6 +35,21 @@ export async function getWord(id) {
     return data;
 }
 
+export async function addRecipe(word, profile, sentence) {
+    const response = await client
+        .from('recipes')
+        .insert({
+            profile_id: profile.id,
+            word_id: word.id,
+            sentence
+        })
+        .single();
+
+    return checkResponse(response);
+
+}
+
+
 export async function getProfile(userId) {
     const response = await client
         .from(PROFILE_TABLE)
