@@ -24,7 +24,6 @@ main h1 {
 }
 
 body {
-    padding-bottom: 30px;
     font-family: 'Gentium Plus', serif;
     background: var(--background);
 }
@@ -74,11 +73,6 @@ header a:hover {
     display: none;
 }
 
-main {
-    height: 100%;
-}
-
-
 .word-card {
     border: 2px solid black;
     background-color: rgba(255, 255, 255, 0.766);
@@ -106,10 +100,11 @@ a .word {
 }
 
 footer {
-    position: fixed;
+    position: sticky;
     bottom: 0;
     left: 0;
     right: 0;
+    margin-top: 50px;
     display: flex;
     justify-content: flex-end;
     background-color: var(--footer-background);
