@@ -61,6 +61,26 @@ export async function removeRecipe(recipeId) {
     return checkResponse(response);
 }
 
+export async function getNotification(id) {
+    const response = await client
+        .from('words')
+        .select(`word,  
+            profiles:words_to_profile (
+                profile:profiles (
+                    id, 
+                    username
+                )
+            )`)
+        .eq('id', id)
+        .single();
+    if (!checkResponse(response)) return null;
+
+    const data = response.data;
+    data.profiles = data.profiles.map(x => x.profile);
+
+    return data;
+}
+
 export async function getProfile(userId) {
     const response = await client
         .from(PROFILE_TABLE)

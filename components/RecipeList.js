@@ -5,6 +5,15 @@ export default function createRecipeList(root, { handleRemoveRecipe }) {
     return ({ recipes, profile }) => {
         ul.innerHTML = '';
 
+        if (recipes.length === 0) {
+            const li = document.createElement('li');
+
+            const span = document.createElement('span');
+            span.textContent = 'No recipes have been shared yet.';
+            li.append(span);
+            ul.append(li);
+        }
+
         for (const recipe of recipes) {
             const li = Recipe({ recipe, profile, handleRemoveRecipe });
             ul.append(li);
@@ -44,6 +53,8 @@ function Recipe({ recipe, profile, handleRemoveRecipe }) {
 
     return li;
 }
+
+
 
 function initialize(root) {
     const ul = document.createElement('ul');

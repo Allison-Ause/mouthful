@@ -1,8 +1,10 @@
 import { getUser, signOut } from './services/auth-service.js';
 import { getProfile, getWords } from './services/word-service.js';
+import { targetAddWord } from './services/wordsToProfiles.js';
 import { protectPage } from './utils.js';
 import createUser from './components/User.js';
 import createBulkBin from './components/BulkBin.js';
+import { createNotification } from './components/notification.js';
 
 // State
 let user = null;
@@ -29,6 +31,11 @@ async function handlePageLoad() {
 
         randomWords.push(poppedItem);
     }
+
+    targetAddWord(userActivity => {
+        createNotification(document.querySelector('.notifications-box'), userActivity);
+        display();
+    });
 
     display();
 }

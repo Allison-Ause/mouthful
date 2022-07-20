@@ -8,10 +8,6 @@ body {
     background-attachment: fixed;
 }
 
-section ul {
-    height: 661px;
-}
-
 #bulk-bin-header {
     background: black;
 }
