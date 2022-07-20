@@ -14,9 +14,13 @@ h1 {
 }
 
 main h1 {
-    margin: 0 0 40px 0;
+    margin: 0;
     font-style: bold;
     color: white;
+}
+
+main > h1, main > h2, main > p {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 2px black);
 }
 
 .logo {
