@@ -1,7 +1,6 @@
 export function createNotification(box, data) {
     box.innerHTML = '';
 
-
     const div = document.createElement('div');
     div.classList.add('notification');
 
