@@ -1,5 +1,5 @@
 import { client, checkResponse } from './client.js';
-import { getWord } from './word-service.js';
+import { getNotification } from './word-service.js';
 
 export async function saveWord(data) {
     const response = await client
@@ -28,7 +28,7 @@ export function targetAddWord(listener) {
         .on('INSERT', async (payload) => {
             const newPayload = payload.new;
             
-            const data = await getWord(newPayload.word_id);
+            const data = await getNotification(newPayload.word_id);
             const user = getUserProfile(data.profiles, newPayload.profile_id);
 
             const word = {
