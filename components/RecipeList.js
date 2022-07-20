@@ -20,26 +20,27 @@ function Recipe({ recipe, profile, handleRemoveRecipe }) {
     recipeSentence.textContent = recipe.sentence;
     recipeSentence.classList.add('recipe-sentence');
     
+    const div = document.createElement('div');
+    div.classList.add('username-delete-row');
+
     const recipeUsername = document.createElement('span');
     recipeUsername.textContent = recipe.profile.username;
     recipeUsername.classList.add('recipe-username');
 
-    li.append(recipeSentence, recipeUsername);
-
+    const deleteButton = document.createElement('span');
 
     if (profile.id === recipe.profile.id) {
-
-        const deleteButton = document.createElement('span');
         deleteButton.textContent = 'delete';
         deleteButton.classList.add('delete-button');
 
         deleteButton.addEventListener('click', async () => {
             await handleRemoveRecipe(recipe.id);
-            
         });
-
-        li.append(deleteButton);
     }
+
+    div.append(recipeUsername, deleteButton);
+
+    li.append(recipeSentence, div);
 
     return li;
 }

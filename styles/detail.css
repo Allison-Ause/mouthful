@@ -108,6 +108,18 @@ button {
     content: "— ";
 }
 
+.delete-button:hover {
+        color: rgba(128, 128, 128, 0.702);
+        cursor: default;
+}
+
+.delete-button {
+    font-size: 12px;
+    display: block;
+    text-align: right;
+    color: rgb(132, 131, 131)
+}
+
 .recipe-form {
     display: flex;
     flex-flow: column nowrap;
