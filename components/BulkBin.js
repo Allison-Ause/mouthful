@@ -18,14 +18,21 @@ function WordCard(word) {
 
     const a = document.createElement('a');
     a.href = `../detail/?id=${word.id}`;
+    a.classList.add('word-link');
+    li.append(a);
 
     const span = document.createElement('span');
     span.classList.add('word');
     span.textContent = word.word;
-
     a.append(span);
 
-    li.append(a);
+    const hr = document.createElement('hr');
+    li.append(hr);
+
+    const typeSpan = document.createElement('span');
+    typeSpan.textContent = word.type;
+    typeSpan.classList.add('word-type');
+    li.append(typeSpan);
 
     return li;
 }

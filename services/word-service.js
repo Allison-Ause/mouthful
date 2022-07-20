@@ -7,7 +7,9 @@ export async function getWords() {
         .from('words')
         .select(`
             id,
-            word`);
+            word,
+            type
+        `);
 
     return checkResponse(response);
 }
