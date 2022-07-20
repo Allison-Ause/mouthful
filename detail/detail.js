@@ -23,6 +23,11 @@ async function handlePageLoad() {
     const params = new URLSearchParams(window.location.search);
     wordID = Number(params.get('id'));
 
+    if (!wordID) {
+        window.location.replace('../');
+        return;
+    }
+
     profile = await getProfile(user.id);
     word = await getWord(wordID);
 
