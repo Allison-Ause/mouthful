@@ -19,7 +19,11 @@ main h1 {
     color: white;
 }
 
-main > h1, main > h2, main > p {
+.shadowed, main > h1, main > h2, main > p {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 2px black);
+}
+
+.shadowed {
     filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 2px black);
 }
 
