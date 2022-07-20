@@ -3,7 +3,6 @@
 :root {
     --background: white;
     --header-background: black;
-    --footer-background: black;
 }
 
 :-webkit-any-link {
@@ -109,12 +108,13 @@ footer {
     right: 0;
     display: flex;
     justify-content: flex-end;
-    background-color: var(--footer-background);
 }
 
 .bio-link {
     color: white;
-    margin: 5px 10px;
+    background-color: black;
+    padding: 5px 10px;
+    border-top-left-radius: 10px;
     text-decoration: underline;
 }
 
