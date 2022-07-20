@@ -13,13 +13,20 @@ body {
 
 #profile-words li {
     position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: baseline;
 }
 
 #profile-words button {
     position: absolute;
     right: 10px;
     bottom: 10px;
+}
+
+hr {
+    border-bottom: 1px solid black;
+    margin: 8px 0 0 0;
+}
+
+.word-card {
+    padding: 25px 50px;
+    padding-bottom: 50px;
 }

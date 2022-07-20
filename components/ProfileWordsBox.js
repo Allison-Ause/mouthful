@@ -14,8 +14,16 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
             a.href = `/detail/?id=${word.id}`;
             a.textContent = word.word;
             a.classList.add('word');
+            a.classList.add('word-link');
             li.append(a);
 
+            const hr = document.createElement('hr');
+            li.append(hr);
+
+            const typeSpan = document.createElement('span');
+            typeSpan.textContent = word.type;
+            typeSpan.classList.add('word-type');
+            li.append(typeSpan);
 
             if (ownProfile) {
                 const deleteButton = document.createElement('button');

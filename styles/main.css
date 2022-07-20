@@ -126,6 +126,10 @@ footer {
     color: gray;
 }
 
+.word-link:hover {
+    color: rgb(88, 88, 88);
+}
+
 button {
     font-family: inherit;
     border: 1px solid black;
