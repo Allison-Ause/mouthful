@@ -3,7 +3,7 @@ export default function createProfileBox(root) {
     const usernameDisplay = root.querySelector('.username');
 
     return ({ profile }) => {
-        usernameDisplay.textContent = 'Chef\xa0\xa0' + profile.username + '\'s \xa0Pantry';
+        usernameDisplay.textContent = `Chef ${profile.username}'s Pantry`;
     };
 }
 

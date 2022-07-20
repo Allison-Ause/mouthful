@@ -8,6 +8,7 @@ body {
 .username {
     font-size: 2em;
     text-transform: capitalize;
+    word-spacing: 0.11em;
 }
 
 #profile-box {
