@@ -20,8 +20,10 @@ async function handlePageLoad() {
     const params = new URLSearchParams(window.location.search);
     wordID = Number(params.get('id'));
 
-    profile = await getProfile(user.id);
-    word = await getWord(wordID);
+    [profile, word] = await Promise.all([
+        getProfile(user.id),
+        getWord(wordID)
+    ]);
 
     display();
 }

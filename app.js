@@ -17,8 +17,10 @@ async function handlePageLoad() {
     user = getUser();
     if (protectPage(user)) return;
 
-    profile = await getProfile(user.id);
-    words = await getWords(id, word);
+    [profile, words] = await Promise.all([
+        getProfile(user.id),
+        getWords(id, word)
+    ]);
 
     for (let i = 0; i < 4; i++) {
         const index = Math.floor(Math.random() * words.length);
