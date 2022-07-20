@@ -18,14 +18,9 @@ function WordCard(word) {
 
     const a = document.createElement('a');
     a.href = `../detail/?id=${word.id}`;
-    a.classList.add('word-link');
+    a.classList.add('word', 'word-link');
+    a.textContent = word.word;
     li.append(a);
-
-    const span = document.createElement('span');
-    span.classList.add('word');
-    span.textContent = word.word;
-    a.append(span);
-
     const hr = document.createElement('hr');
     li.append(hr);
 
