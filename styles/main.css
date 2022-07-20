@@ -40,6 +40,7 @@ main {
     text-align: center;
     max-width: 500px;
     margin: auto;
+    font-size: calc(1vw + 1vh + .5vmin);
 }
 
 header {
