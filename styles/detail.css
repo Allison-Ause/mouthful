@@ -5,22 +5,29 @@ body {
     background-attachment: fixed;
 }
 
-.username-box {
+.scroll-box {
     border: solid 2px black;
     margin: 10px 20px;
-    height: 150px;
     padding: 20px 50px;
     overflow: scroll;
     background-color: rgba(255, 255, 255, 0.766);
 }
 
-.username-box::-webkit-scrollbar {
+.scroll-box::-webkit-scrollbar {
     display: none;
 }
 
-.username-box {
+.scroll-box {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.recipe-box {
+    /* TODO: size limits of whatever */
+}
+
+.username-box {
+    height: 100px;
 }
 
 .users-with-word {
@@ -68,7 +75,77 @@ button {
     margin-top: 25px;
 }
 
-.user-list {
+.sub-heading {
     color: white;
     margin-top: 30px;
+}
+
+.recipe-box {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 35px;
+    text-align: left;
+    padding: 50px;
+}
+
+.recipe-box ul {
+    display: contents;
+}
+
+.recipe-sentence {
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+.username-delete-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.delete-button:hover {
+    color: rgba(128, 128, 128, 0.702);
+    cursor: default;
+}
+
+.delete-button {
+justify-content: flex-start;
+align-items: flex-end;
+font-size: 12px;
+display: block;
+text-align: right;
+color: rgb(132, 131, 131);
+margin-top: auto;
+}
+
+.recipe-username {
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-style: italic;
+    text-align: right;
+    margin-left: auto;
+}
+
+.recipe-username::before {
+    content: "— ";
+}
+
+.recipe-form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    border-top: 1px solid black;
+    padding-top: 10px;
+}
+
+.recipe-form textarea {
+    resize: none;
+}
+
+.recipe-form label {
+    display: contents;
+}
+
+.recipe-form button {
+    margin: 0;
+    align-self: flex-end;
 }

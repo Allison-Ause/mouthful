@@ -15,10 +15,16 @@ export async function getWords() {
 export async function getWord(id) {
     const response = await client
         .from('words')
-        .select(`*, 
-            profiles:words_to_profile (
-                profile:profiles (*)
-            )`)
+        .select(`*,
+            recipes(
+                id,
+                profile: profiles(*),
+                sentence
+            ), 
+            profiles: words_to_profile(
+                profile: profiles(*)
+            )`
+        )
         .eq('id', id)
         .single();
     if (!checkResponse(response)) return null;
@@ -27,6 +33,30 @@ export async function getWord(id) {
     data.profiles = data.profiles.map(x => x.profile);
 
     return data;
+}
+
+export async function addRecipe(word, profile, sentence) {
+    const response = await client
+        .from('recipes')
+        .insert({
+            profile_id: profile.id,
+            word_id: word.id,
+            sentence
+        })
+        .single();
+
+    return checkResponse(response);
+
+}
+
+export async function removeRecipe(recipeId) {
+    const response = await client
+        .from('recipes')
+        .delete()
+        .eq('id', recipeId)
+        .single();
+    
+    return checkResponse(response);
 }
 
 export async function getProfile(userId) {
