@@ -74,10 +74,6 @@ header a:hover {
     display: none;
 }
 
-main {
-    height: 100%;
-}
-
 
 .word-card {
     border: 2px solid black;
@@ -135,4 +131,16 @@ button:hover {
 
 button:active {
     background-color: rgba(255, 255, 255, 0.925);
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    position: fixed;
+    bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.766);
+    border: solid 1px black;
+    padding: 10px;
+    margin: 10px;
 }
