@@ -9,7 +9,7 @@ export default function createUsersWithWord(usersBox) {
         let displayed = false;
 
         for (let profile of profiles) {
-            if (profile.user_id === curUser.id) continue;
+            if (profile.id === curUser.id) continue;
             const li = createUserList(profile);
             ul.append(li);
             displayed = true;
@@ -30,7 +30,7 @@ function createUserList(profile) {
     li.classList.add('user');
 
     const a = document.createElement('a');
-    a.href = `../profile/?id=${profile.user_id}`;
+    a.href = `../profile/?id=${profile.id}`;
 
     const span = document.createElement('span');
     span.textContent = profile.username;

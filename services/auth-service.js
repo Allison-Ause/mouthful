@@ -26,7 +26,6 @@ export async function createProfile(user) {
     const response = await client
         .from('profiles')
         .insert({
-            user_id: user.id,
             username: defaultUsername
         });
 

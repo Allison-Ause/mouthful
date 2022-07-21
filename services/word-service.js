@@ -85,7 +85,7 @@ export async function getProfile(userId) {
     const response = await client
         .from(PROFILE_TABLE)
         .select('*')
-        .eq('user_id', userId)
+        .eq('id', userId)
         .single();
 
     return checkResponse(response);
@@ -99,7 +99,7 @@ export async function getProfileWithSavedWords(userId) {
                 word:words(*)
             )
         `)
-        .eq('user_id', userId)
+        .eq('id', userId)
         .single();
 
     if (!checkResponse(response)) return null;

@@ -49,7 +49,7 @@ function createWordCard(word, user, handleRemoveWord, handleAddWord) {
 function inUserPantry(word, user) {
 
     for (let profile of word.profiles) {
-        if (profile.user_id === user.id) return true;
+        if (profile.id === user.id) return true;
     }
     return false;
 }
