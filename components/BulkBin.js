@@ -19,6 +19,10 @@ function WordCard(word) {
     const a = document.createElement('a');
     a.href = `../detail/?id=${word.id}`;
     a.classList.add('word', 'word-link');
+    a.draggable = true; //add draggable attribute 
+
+    a.addEventListener('dragstart', dragStart);
+
     a.textContent = word.word;
     li.append(a);
     const hr = document.createElement('hr');
@@ -30,4 +34,21 @@ function WordCard(word) {
     li.append(typeSpan);
 
     return li;
+}
+
+function dragStart(e) {
+    e.preventDefault();
+    console.log('firing');
+}
+
+function dragEnter(e) { // for recipient
+    e.preventDefault();
+}
+
+function dragOver(e) { // for recipient
+    e.preventDefault();
+}
+
+function dragLeave(e) {
+    e.preventDefault();
 }
