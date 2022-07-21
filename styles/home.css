@@ -9,6 +9,13 @@
     border: 2px solid white;
 }
 
+#text-bubble {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+}
+
 body {
     background-image: url('../assets/bulk-bin.jpg');
     background-repeat: no-repeat;

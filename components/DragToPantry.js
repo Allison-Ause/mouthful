@@ -31,8 +31,18 @@ export default function createDragToPantry(root, { handleSaveWord }) {
 
                 if (profile.words.find(x => x.id === wordId)) {
                     textBubble.classList.remove('hidden');
+                    textBubble.textContent = 'Already Shelved';
+                    setTimeout(() => {
+                        textBubble.classList.add('hidden');
+                    }, 2000);
                     return;
                 }
+
+                textBubble.classList.remove('hidden');
+                textBubble.textContent = 'Shelved!';
+                setTimeout(() => {
+                    textBubble.classList.add('hidden');
+                }, 2000);
 
                 const id = parseInt(e.dataTransfer.getData('text/plain'));
                 handler(id);
