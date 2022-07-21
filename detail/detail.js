@@ -54,7 +54,7 @@ async function handleRemoveWord(word_id) {
 async function handleAddWord(word_id) {
     const dataToUpdate = {
         word_id,
-        profile_id: Number(profile.id)
+        profile_id: profile.id
     };
 
     await saveWord(dataToUpdate);
