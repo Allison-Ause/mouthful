@@ -71,7 +71,7 @@ const DragToPantry = createDragToPantry(document.querySelector('.drag-pantry'),
 function display() {
     User({ profile });
     BulkBin({ words:randomWords });
-    DragToPantry();
+    DragToPantry(profile);
 }
 
 handlePageLoad();

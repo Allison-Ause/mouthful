@@ -1,31 +1,47 @@
 export default function createDragToPantry(root, { handleSaveWord }) {
-    root.addEventListener('dragenter', dragEnter);
-    root.addEventListener('dragover', dragOver);
-    root.addEventListener('dragleave', dragLeave);
-    root.addEventListener('drop', dragDrop(handleSaveWord));
 
-    return () => {};
-}
 
-function dragEnter(e) {
-    e.preventDefault();
-    console.log('did enter target');
-}
+    return (profile) => {
 
-function dragOver(e) {
-    e.preventDefault();
-    console.log('did hover over target');
-}
+        root.addEventListener('dragenter', dragEnter);
+        root.addEventListener('dragover', dragOver);
+        root.addEventListener('dragleave', dragLeave);
+        root.addEventListener('drop', dragDrop(handleSaveWord));
 
-function dragLeave(e) {
-    e.preventDefault();
-    console.log('did leave target');
-}
+        function dragEnter(e) {
+            e.preventDefault();
+            console.log('entered target');
 
-function dragDrop(handler) {
-    return e => {
-        e.preventDefault();
-        const id = parseInt(e.dataTransfer.getData('text/plain'));
-        handler(id);
+        }
+        
+        function dragOver(e) {
+            e.preventDefault();
+            console.log('did hover over target');
+        }
+        
+        function dragLeave(e) {
+            e.preventDefault();
+            console.log('did leave target');
+        }
+        
+        function dragDrop(handler) {
+            return e => {
+                e.preventDefault();
+                const wordId = parseInt(e.dataTransfer.getData('text/plain'));
+
+                if (profile.words.find(x => x.id === wordId)) {
+                    textBubble.classList.remove('hidden');
+                    return;
+                }
+
+                const id = parseInt(e.dataTransfer.getData('text/plain'));
+                handler(id);
+                // check if it's there, on drop we return
+            };
+        }
     };
 }
+
+const textBubble = document.querySelector('#text-bubble');
+
+
