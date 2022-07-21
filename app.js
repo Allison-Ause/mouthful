@@ -33,6 +33,7 @@ async function handlePageLoad() {
     }
 
     targetAddWord(userActivity => {
+        if (userActivity.profile_id === profile.id) return;
         createNotification(document.querySelector('.notifications-box'), userActivity);
         display();
     });
