@@ -3,7 +3,7 @@ import { protectPage } from '../utils.js';
 
 // Services
 import { getUser, signOut } from '../services/auth-service.js';
-import { getProfileWithSavedWords } from '../services/word-service.js';
+import { getProfileWithSavedWords, getProfile } from '../services/word-service.js';
 
 // Component Constructors
 import createUser from '../components/User.js';
@@ -14,6 +14,7 @@ import { removeWord } from '../services/wordsToProfiles.js';
 // State
 let user = null;
 let profile = null;
+let viewedProfile = null;
 let ownProfile = false;
 
 // Action Handlers
@@ -24,8 +25,12 @@ async function handlePageLoad() {
     const searchParams = new URLSearchParams(window.location.search);
     const userId = searchParams.get('id');
 
-    ownProfile = userId === null;
-    profile = await getProfileWithSavedWords(userId ?? user.id);
+    [profile, viewedProfile] = await Promise.all([
+        getProfile(user.id),
+        getProfileWithSavedWords(userId ?? user.id)
+    ]);
+
+    ownProfile = profile.id === viewedProfile.id;
 
     display();
 }
@@ -58,8 +63,8 @@ const ProfileWordsBox = createProfileWordsBox(
 
 function display() {
     User({ profile, hideProfileLink: ownProfile });
-    ProfileBox({ profile });
-    ProfileWordsBox({ words: profile.saved_words, ownProfile });
+    ProfileBox({ profile: viewedProfile, ownProfile });
+    ProfileWordsBox({ words: viewedProfile.saved_words, ownProfile });
 }
 
 handlePageLoad();
