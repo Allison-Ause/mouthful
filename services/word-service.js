@@ -84,9 +84,19 @@ export async function getNotification(id) {
 export async function getProfile(userId) {
     const response = await client
         .from(PROFILE_TABLE)
-        .select('*')
+        .select(`
+            *,
+            words:words_to_profile(
+                word:words(*)
+            )
+        `)
         .eq('id', userId)
         .single();
+
+    if (!checkResponse(response)) return null;
+
+    const data = response.data;
+    data.words = data.words.map(x => x.word);
 
     return checkResponse(response);
 }

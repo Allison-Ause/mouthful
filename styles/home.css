@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Plus:wght@400;700&display=swap');
 
+.drag-pantry {
+    color: white;
+    position: absolute;
+    top: -35px;
+    right: 5px;
+    padding: 10px;
+    border: 2px solid white;
+}
+
+#text-bubble {
+    color: white;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+}
+
 body {
     background-image: url('../assets/bulk-bin.jpg');
     background-repeat: no-repeat;

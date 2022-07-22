@@ -1,5 +1,4 @@
 export default function createBulkBin(root) {
-
     return ({ words }) => {
 
         root.innerHTML = '';
@@ -19,6 +18,12 @@ function WordCard(word) {
     const a = document.createElement('a');
     a.href = `../detail/?id=${word.id}`;
     a.classList.add('word', 'word-link');
+
+    // For drag and drop
+    a.draggable = true;
+    a.setAttribute('id', word.id);
+    a.addEventListener('dragstart', dragStart);
+
     a.textContent = word.word;
     li.append(a);
     const hr = document.createElement('hr');
@@ -30,4 +35,9 @@ function WordCard(word) {
     li.append(typeSpan);
 
     return li;
+}
+
+// Draggable element
+function dragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.id);
 }
