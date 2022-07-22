@@ -39,7 +39,5 @@ function WordCard(word) {
 
 // Draggable element
 function dragStart(e) {
-    console.log('firing');
     e.dataTransfer.setData('text/plain', e.target.id);
-    console.log(e.target.id);
 }
