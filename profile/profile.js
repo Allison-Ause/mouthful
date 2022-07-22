@@ -41,12 +41,13 @@ async function handleSignOut() {
 }
 
 async function handleDeleteSavedWord(word) {
-    await removeWord(word.id, profile.id);
+    if (!await removeWord(word.id, viewedProfile.id)) return null;
 
-    const index = profile.saved_words.indexOf(word);
+    const index = viewedProfile.saved_words.indexOf(word);
     if (index === -1) return;
 
-    profile.saved_words.splice(index, 1);
+    viewedProfile.saved_words.splice(index, 1);
+
     display();
 }
 
