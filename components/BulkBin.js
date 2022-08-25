@@ -1,7 +1,6 @@
 export default function createBulkBin(root) {
 
     return ({ words }) => {
-
         root.innerHTML = '';
     
         for (const word of words) {
@@ -21,6 +20,7 @@ function WordCard(word) {
     a.classList.add('word', 'word-link');
     a.textContent = word.word;
     li.append(a);
+    
     const hr = document.createElement('hr');
     li.append(hr);
 

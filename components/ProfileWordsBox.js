@@ -13,8 +13,7 @@ export default function createProfileWordsBox(root, { handleDeleteSavedWord }) {
             const a = document.createElement('a');
             a.href = `/detail/?id=${word.id}`;
             a.textContent = word.word;
-            a.classList.add('word');
-            a.classList.add('word-link');
+            a.classList.add('word', 'word-link');
             li.append(a);
 
             const hr = document.createElement('hr');

@@ -12,7 +12,7 @@ import createRecipeForm from '../components/RecipeForm.js';
 let user = null;
 let profile = null;
 let word = null;
-let wordID = null;
+let wordId = null;
 
 
 // Action Handlers
@@ -21,16 +21,16 @@ async function handlePageLoad() {
     if (protectPage(user)) return;
 
     const params = new URLSearchParams(window.location.search);
-    wordID = Number(params.get('id'));
+    wordId = Number(params.get('id'));
 
-    if (!wordID) {
+    if (!wordId) {
         window.location.replace('../');
         return;
     }
 
     [profile, word] = await Promise.all([
         getProfile(user.id),
-        getWord(wordID)
+        getWord(wordId)
     ]);
 
     display();
@@ -105,14 +105,11 @@ const RecipeList = createRecipeList(document.querySelector('.recipe-box'), { han
 createRecipeForm(document.querySelector('.recipe-form'), { handleAddRecipe });
 
 
-
 function display() {
     User({ profile });
     SingleServing(word, user);
     UsersWithWord({ profiles: word.profiles, curUser: user });
     RecipeList({ recipes: word.recipes, profile });
-
-
 }
 
 handlePageLoad();

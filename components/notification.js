@@ -18,9 +18,12 @@ export function createNotification(box, data) {
     deleteButton.textContent = 'x';
     deleteButton.addEventListener('click', () => {
         div.setAttribute('id', 'take-down');
+        
         setTimeout(() => {
-            div.classList.add('hidden');
-        }, '900');
+            // maybe remove it?
+            div.remove();
+            // div.classList.add('hidden');
+        }, 900);
     });
 
 

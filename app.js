@@ -10,8 +10,6 @@ import { createNotification } from './components/notification.js';
 let user = null;
 let profile = null;
 let words = [];
-let word = '';
-let id = '';
 let randomWords = [];
 
 // Action Handlers
@@ -19,9 +17,11 @@ async function handlePageLoad() {
     user = getUser();
     if (protectPage(user)) return;
 
+    // nice use of Promise.all 👍
     [profile, words] = await Promise.all([
         getProfile(user.id),
-        getWords(id, word)
+        // this method doesn't take any parameters
+        getWords()
     ]);
 
     for (let i = 0; i < 4; i++) {
