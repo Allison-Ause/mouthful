@@ -117,13 +117,13 @@ button {
 }
 
 .delete-button {
-justify-content: flex-start;
-align-items: flex-end;
-font-size: 12px;
-display: block;
-text-align: right;
-color: rgb(132, 131, 131);
-margin-top: auto;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-size: 12px;
+    display: block;
+    text-align: right;
+    color: rgb(132, 131, 131);
+    margin-top: auto;
 }
 
 .recipe-username {

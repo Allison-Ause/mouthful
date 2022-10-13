@@ -1,6 +1,8 @@
 export default function createUsersWithWord(usersBox) {
     
     return ({ profiles, curUser }) => {
+        // in other components, you used an initialize function,
+        // cool idea, but be consistent and use it here too
         usersBox.innerHTML = '';
 
         const ul = document.createElement('ul');

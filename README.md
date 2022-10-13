@@ -1,11 +1,8 @@
-
-
 ![mouthful logo](./assets/mouthful-light.png)
 
-## mouthful app 
+## mouthful app
 
 `Bite-sized additions to your word pantry — enjoy delicious discourse, everyday`
-
 
 ## How It Works
 
@@ -28,4 +25,4 @@
 
 [Miro Board](https://miro.com/app/board/uXjVOl1VXFQ=/?share_link_id=321995215211)
 
-
+grading PR initial commit

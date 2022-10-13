@@ -3,11 +3,7 @@ export default function createProfileBox(root) {
     const usernameDisplay = root.querySelector('.username');
 
     return ({ profile, ownProfile }) => {
-        if (ownProfile) {
-            usernameDisplay.textContent = `Your Pantry`;
-        } else {
-            usernameDisplay.textContent = `Chef ${profile.username}'s Pantry`;
-        }
+        usernameDisplay.textContent = ownProfile ? `Your Pantry` : `Chef ${profile.username}'s Pantry`;
     };
 }
 

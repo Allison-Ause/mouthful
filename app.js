@@ -10,8 +10,6 @@ import { createNotification } from './components/notification.js';
 let user = null;
 let profile = null;
 let words = [];
-let word = '';
-let id = '';
 let randomWords = [];
 
 // Action Handlers
@@ -19,11 +17,19 @@ async function handlePageLoad() {
     user = getUser();
     if (protectPage(user)) return;
 
+    // nice use of Promise.all 👍
     [profile, words] = await Promise.all([
         getProfile(user.id),
-        getWords(id, word)
+        // this method doesn't take any parameters
+        getWords()
     ]);
 
+    // AFAIK it's not directly exposed via the supabase sdk,
+    // but in theory if there were a lot of words you wouldn't want
+    // to select them all into the browser client, so there
+    // is some sql magic to get a "random set" you would use.
+    // Just be aware you wouldn't want to bring a ton of data to the
+    // browser client just to get 4 rows
     for (let i = 0; i < 4; i++) {
         const index = Math.floor(Math.random() * words.length);
 
